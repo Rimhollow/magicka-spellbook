@@ -12,7 +12,7 @@ def buildSpell (spell, position, spellbook)
   return if position > 4
   for element in 0..9
     unless (conflict(spell, position, element))
-      newSpell = spell
+      newSpell = spell.dup
       newSpell[position] = element
       buildSpell(newSpell, position + 1, spellbook)
     end
